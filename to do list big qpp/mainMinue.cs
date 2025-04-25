@@ -14,11 +14,13 @@ using System.Security.AccessControl;
 
 namespace to_do_list_big_qpp
 {
-    public partial class mainMinue: Form
+    public partial class mainMinue : Form
     {
+        // المتغيرات الثابتة للكائنات المستخدمة في التنقل
         static CreateProject createProject = new CreateProject();
         static toDoListForm toDoList = new toDoListForm();
 
+        // خصائص المشروع الحالي
         prtopertis p = new prtopertis();
 
         public mainMinue()
@@ -26,6 +28,7 @@ namespace to_do_list_big_qpp
             InitializeComponent();
         }
 
+        // عند تحميل الواجهة - يقرأ المشاريع السابقة من الملف ويضيفها للقائمة
         private void mainMinue_Load(object sender, EventArgs e)
         {
             StreamReader streamReader = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\" + "MyProject.txt");
@@ -40,25 +43,27 @@ namespace to_do_list_big_qpp
                     listBox1.Items.Add(lines[i]);
                 }
             }
-        }   
+        }
 
+        // زر إنشاء مشروع - يخفي النافذة الحالية ويفتح نافذة إنشاء المشروع
         private void create_Click(object sender, EventArgs e)
-        { 
+        {
             createProject = new CreateProject();
             this.Hide();
             createProject.Show();
         }
 
+        // حدث تغيير اختيار العنصر من القائمة - غير مستعمل حالياً
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
         }
 
+        // زر فتح مشروع - يفتح المشروع المحدد في نافذة قائمة المهام
         private void open_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < listBox1.Items.Count; i++)
+            for (int i = 0; i < listBox1.Items.Count; i++)
             {
-                if(listBox1.GetSelected(i))
+                if (listBox1.GetSelected(i))
                 {
                     p.nameOfProject = listBox1.GetItemText(listBox1.Items[i]);
                     toDoList.Show();
@@ -66,10 +71,13 @@ namespace to_do_list_big_qpp
                 }
             }
 
-/*            if(toDoList.IsDisposed)
+            /* 
+            // الكود المعلق التالي كان للتحقق من حالة النافذة
+            if (toDoList.IsDisposed)
             {
                 return;
-            }*/
+            }
+            */
         }
     }
 }
