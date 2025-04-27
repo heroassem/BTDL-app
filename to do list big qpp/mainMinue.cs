@@ -23,6 +23,14 @@ namespace to_do_list_big_qpp
         // خصائص المشروع الحالي
         prtopertis p = new prtopertis();
 
+        // مصفوفة لتخزين أسماء المشاريع
+        string[] pr;
+
+        // كائنات للكتابة والقراءة من الملفات
+        StreamWriter stremW;
+
+        bool projectIsSelected;
+
         public mainMinue()
         {
             InitializeComponent();
@@ -56,6 +64,7 @@ namespace to_do_list_big_qpp
         // حدث تغيير اختيار العنصر من القائمة - غير مستعمل حالياً
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            return;
         }
 
         // زر فتح مشروع - يفتح المشروع المحدد في نافذة قائمة المهام
@@ -68,16 +77,37 @@ namespace to_do_list_big_qpp
                     p.nameOfProject = listBox1.GetItemText(listBox1.Items[i]);
                     toDoList.Show();
                     toDoList.Text = p.nameOfProject;
+                    p.nameOfProject = toDoList.Text;
+                    this.Hide();
+                }
+            }
+        }
+
+        // زر حذف مشروع - يحذف المشروع المحدد من القائمة
+        private void delate_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listBox1.Items.Count; i++)
+            {
+                if (listBox1.GetSelected(i))
+                {
+                     listBox1.Items.Remove(listBox1.Items[i]);
+                }
+
+                if (listBox1.Items.Count == 0)
+                {
+                    File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\" + "MyProject.txt");
+                    return;
                 }
             }
 
-            /* 
-            // الكود المعلق التالي كان للتحقق من حالة النافذة
-            if (toDoList.IsDisposed)
+            using(stremW = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\" + "MyProject.txt"))
             {
-                return;
+                for (int i = 0; i < listBox1.Items.Count; i++)
+                {
+                    MessageBox.Show(listBox1.GetItemText(listBox1.Items[i]));
+                    stremW.WriteLine(listBox1.GetItemText(listBox1.Items[i]));
+                }
             }
-            */
         }
     }
 }

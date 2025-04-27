@@ -86,13 +86,11 @@ namespace to_do_list_big_qpp
             stremW.WriteLine(nameOfProject);
             stremW.Close();
 
-            if (CheckProjectName(nameOfProject, path))
+            if (!CheckProjectName(nameOfProject, path))
             {
                 MessageBox.Show("Project folder created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            p.todDoListName = nameOfProject;
-            p.pathOfProject = path;
             this.Close();
             mainMinue.Show();
         }
@@ -106,7 +104,7 @@ namespace to_do_list_big_qpp
 
             using (StreamWriter writer = new StreamWriter(projectFilePath))
             {
-                writer.WriteLine("Project Name: " + n);
+                writer.WriteLine(n +':'+ false);
             }
         }
 

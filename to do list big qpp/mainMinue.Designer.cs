@@ -32,7 +32,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.create = new System.Windows.Forms.Button();
             this.open = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.delate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -77,18 +77,19 @@
             this.open.UseVisualStyleBackColor = false;
             this.open.Click += new System.EventHandler(this.open_Click);
             // 
-            // button3
+            // delate
             // 
-            this.button3.BackColor = System.Drawing.Color.LightPink;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.button3.Location = new System.Drawing.Point(554, 74);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 31);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = false;
+            this.delate.BackColor = System.Drawing.Color.LightPink;
+            this.delate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.delate.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delate.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.delate.Location = new System.Drawing.Point(554, 74);
+            this.delate.Name = "delate";
+            this.delate.Size = new System.Drawing.Size(101, 31);
+            this.delate.TabIndex = 3;
+            this.delate.Text = "Delate";
+            this.delate.UseVisualStyleBackColor = false;
+            this.delate.Click += new System.EventHandler(this.delate_Click);
             // 
             // label1
             // 
@@ -106,7 +107,7 @@
             this.BackColor = System.Drawing.Color.DarkMagenta;
             this.ClientSize = new System.Drawing.Size(667, 391);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.delate);
             this.Controls.Add(this.open);
             this.Controls.Add(this.create);
             this.Controls.Add(this.listBox1);
@@ -131,7 +132,7 @@
         public System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.Button open;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button delate;
         private System.Windows.Forms.Label label1;
     }
 }

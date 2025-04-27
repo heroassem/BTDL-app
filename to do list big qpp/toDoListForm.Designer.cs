@@ -75,6 +75,7 @@
             this.save.TabIndex = 3;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = false;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // NameTask
             // 
@@ -119,7 +120,10 @@
             this.Name = "toDoListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "toDoListForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.toDoListForm_FormClosing);
             this.Load += new System.EventHandler(this.toDoListForm_Load);
+            this.Shown += new System.EventHandler(this.toDoListForm_Shown);
+            this.Leave += new System.EventHandler(this.toDoListForm_Leave);
             this.ResumeLayout(false);
             this.PerformLayout();
 
